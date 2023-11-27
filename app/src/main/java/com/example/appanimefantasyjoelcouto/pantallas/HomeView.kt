@@ -45,6 +45,7 @@ import com.example.appanimefantasyjoelcouto.R
 import com.example.appanimefantasyjoelcouto.elementoLista.AnimeCard
 import com.example.appanimefantasyjoelcouto.listaCartas.CrearListaJugadores
 import com.example.appanimefantasyjoelcouto.modelos.JugadorAnime
+import com.example.appanimefantasyjoelcouto.rutas.Rutas
 import com.example.appanimefantasyjoelcouto.ui.theme.AppAnimeFantasyJoelCoutoTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -151,7 +152,7 @@ fun HomeView(navController: NavHostController?) {
         ) {
             ExtendedFloatingActionButton(
                 onClick = {
-                    Toast.makeText(context, "AÑADIR AUN POR IMPLEMENTAR,PROXIMAMENTE!!!",Toast.LENGTH_SHORT).show()
+                    navController?.navigate(Rutas.NuevoJugadorAnimeView.ruta)
                 },
                 modifier = Modifier
                     .padding(8.dp),

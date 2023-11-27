@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.appanimefantasyjoelcouto.pantallas.HomeView
 import com.example.appanimefantasyjoelcouto.pantallas.InfoJugadorView
+import com.example.appanimefantasyjoelcouto.pantallas.NuevoJugadorAnimeView
 import com.example.appanimefantasyjoelcouto.rutas.Rutas
 
 @Composable
@@ -19,6 +20,11 @@ fun GrafoNavegacion(){
         composable(Rutas.HomeView.ruta){
             HomeView(navController = navController)
         }
+
+        composable(Rutas.NuevoJugadorAnimeView.ruta){
+            NuevoJugadorAnimeView(navController = navController)
+        }
+
         //"/${jugador.nombre}" + "/${jugador.equipoAnime}" + "/${jugador.text}" + jugador.fotoDescripcion
         composable(Rutas.InfoJugadorView.ruta + "/{nombre}" + "/{equipo}" + "/{texto}"){ llamada ->
             val nombre = llamada.arguments?.getString("nombre")
