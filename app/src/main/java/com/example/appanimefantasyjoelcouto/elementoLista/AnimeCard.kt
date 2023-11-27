@@ -28,18 +28,24 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.appanimefantasyjoelcouto.modelos.JugadorAnime
+import com.example.appanimefantasyjoelcouto.rutas.Rutas
 import com.example.appanimefantasyjoelcouto.ui.theme.AppAnimeFantasyJoelCoutoTheme
 
 @Composable
-fun AnimeCard(jugador : JugadorAnime){
+fun AnimeCard(jugador : JugadorAnime,navController: NavHostController?){
 
     val checkedState = remember { mutableStateOf(false) }
 
     Card(modifier = Modifier
         .size(width = 600.dp, height = 120.dp)
         .padding(4.dp)
-        .clickable {}
+        .clickable {
+            //header : String, foto : Image, text : String
+            navController?.navigate(Rutas.InfoJugadorView.ruta + "/${jugador.nombre}" + "/${jugador.equipoAnime}" + "/${jugador.text}")
+        }
         .fillMaxWidth(), elevation = CardDefaults.cardElevation(
         defaultElevation = 8.dp
         ),
@@ -54,7 +60,7 @@ fun AnimeCard(jugador : JugadorAnime){
             horizontalArrangement =  Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ){
-            Image(painter = jugador.foto,
+            Image(painter = jugador.fotoCard,
                 contentDescription = "PutoAmo",
                 modifier = Modifier
                     .fillMaxHeight()
